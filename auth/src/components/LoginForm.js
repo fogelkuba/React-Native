@@ -16,6 +16,7 @@ class LoginForm extends React.Component {
                     <Input
                         value={this.state.text}
                         onChangeText={ text => this.setState( { text } ) }
+                        label="Email"
                     />
 
                 </CardSection>
