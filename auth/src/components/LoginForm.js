@@ -42,11 +42,11 @@ class LoginForm extends React.Component {
 
                 <CardSection>
                     <Input
+                        secureTextEntry
                         placeholder="password"
                         label="Password"
                         value={this.state.password}
                         onChangeText={ password => this.setState( { password } ) }
-                        secureTextEntry
                     />
                 </CardSection>
 
