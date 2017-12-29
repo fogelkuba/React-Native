@@ -23,14 +23,28 @@ class LoginForm extends React.Component {
         });
 
         firebase.auth().signInWithEmailAndPassword(email, password)
+            .then(this.onLoginSuccess.bind(this))
             .catch( () => {
                 firebase.auth().createUserWithEmailAndPassword(email, password)
-                .catch(
-                    this.setState({
-                        err: 'Authentification failed'
-                    })
-                )
+                .then(this.onLoginSuccess.bind(this))
+                .catch(this.onLoginFail.bind(this))
             })
+    }
+
+    onLoginFail(){
+        this.setState({
+            err: 'Authentification failed',
+            loading: false
+        })
+    }
+
+    onLoginSuccess(){
+        this.setState({
+            email: '',
+            password: '',
+            loading: false,
+            err: ''
+        })
     }
 
     renderButton = () => {
