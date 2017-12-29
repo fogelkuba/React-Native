@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import firebase from 'firebase';
 import { Text } from 'react-native';
-import { Button, Card, CardSection, Input } from './common';
+import firebase from 'firebase';
+import { Button, Card, CardSection, Input, Spinner } from './common';
 
 class LoginForm extends React.Component {
     constructor(props){
@@ -9,12 +9,18 @@ class LoginForm extends React.Component {
         this.state = {
             email: '',
             password: '',
-            err: ''
+            err: '',
+            loading: false
         };
     }
 
     onButtonPress(){
         const { email,password } = this.state;
+
+        this.setState({
+            err: '',
+            loading: true
+        });
 
         firebase.auth().signInWithEmailAndPassword(email, password)
             .catch( () => {
@@ -25,6 +31,19 @@ class LoginForm extends React.Component {
                     })
                 )
             })
+    }
+
+    renderButton = () => {
+        if (this.state.loading) {
+            return(
+                <Spinner size="small"/>
+            )
+        }
+        return (
+            <Button onPress={this.onButtonPress.bind(this)}>
+                Log in
+            </Button>
+        )
     }
 
     render(){
@@ -53,9 +72,7 @@ class LoginForm extends React.Component {
                 <Text style={style.errorTextStyle}> {this.state.err} </Text>
 
                 <CardSection>
-                    <Button onPress={this.onButtonPress.bind(this)}>
-                        Log in
-                    </Button>
+                    {this.renderButton()}
                 </CardSection>
             </Card>
         );
@@ -67,7 +84,7 @@ const style = {
         fontSize: 20,
         alignSelf: 'center',
         color: 'red',
-        padding: 10
+        padding: 5
     }
 }
 
