@@ -14,7 +14,7 @@ class LoginForm extends React.Component {
         };
     }
 
-    onButtonPress(){
+    onButtonPress = () => {
         const { email,password } = this.state;
 
         this.setState({
@@ -31,14 +31,14 @@ class LoginForm extends React.Component {
             })
     }
 
-    onLoginFail(){
+    onLoginFail = () => {
         this.setState({
             err: 'Authentification failed',
             loading: false
         })
     }
 
-    onLoginSuccess(){
+    onLoginSuccess = () => {
         this.setState({
             email: '',
             password: '',
