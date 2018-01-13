@@ -8,7 +8,7 @@ class ListItem extends Component {
 
     componentWillUpdate(){
         LayoutAnimation.easeInEaseOut();
-    }
+    };
 
     renderDescription(){
         const { library, expanded } = this.props;
