@@ -9,7 +9,7 @@ const INITIAL_STATE = {
     email: '',
     password: '',
     user: null,
-    error: 'pyzka'
+    error: ''
 };
 
 export default (state = INITIAL_STATE, action) => {
