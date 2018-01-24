@@ -28,7 +28,8 @@ const RouterComponent = () => {
                         style={sceneStyles}
                         key="emploeeCreate"
                         component={EmployeeCreate}
-                        title="Create Employee"/>
+                        title="Create Employee"
+                    />
                 </Scene>
             </Scene>
         </Router>
