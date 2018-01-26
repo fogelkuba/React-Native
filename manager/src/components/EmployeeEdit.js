@@ -21,7 +21,9 @@ class EmployeeEdit extends Component {
     }
 
     onTextPress(){
+        const { phone, shift} = this.props;
 
+        Communications.text(phone, `Your upcoming shift is on ${shift}`);
     }
 
     render(){
@@ -38,6 +40,12 @@ class EmployeeEdit extends Component {
                 <CardSection>
                     <Button onPress={this.onTextPress.bind(this)}>
                         Text Schedule
+                    </Button>
+                </CardSection>
+
+                <CardSection>
+                    <Button onPress={this.onTextPress.bind(this)}>
+                        Fire Employee
                     </Button>
                 </CardSection>
 
