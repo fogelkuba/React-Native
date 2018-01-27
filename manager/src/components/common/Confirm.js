@@ -5,14 +5,6 @@ import { Button } from './Button';
 
 const Confirm = ({ children, visible, onAccept, onDecline }) => {
 
-    onAccept = () => {
-        console.log('accept');
-    };
-
-    onDecline = () => {
-        console.log('decline');
-    };
-
     const { cardSectionStyle, textStyle, containerStyle } = styles;
 
     return(
