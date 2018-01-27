@@ -29,7 +29,7 @@ const styles = {
     titleStyle:{
         fontSize: 18,
         paddingLeft: 15,
-        paddingTop: 5,
+        paddingTop: 10,
         paddingBottom: 5
     }
 }
